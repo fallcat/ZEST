@@ -57,7 +57,8 @@ def train():
     netA=Attention(text_dim=training_set.text_dim, dimensions=training_set.feature_dim).cuda()
     netA.apply(weights_init)
     optimizerA = optim.Adam(netA.parameters(), lr=opt.lr, betas=(0.5, 0.9), weight_decay=0.0001)
-    criterion = torch.nn.CrossEntropyLoss()
+    # criterion = torch.nn.CrossEntropyLoss()  # why use cross entropy when already applied softmax
+    criterion = torch.nn.NLLLoss()
 
     text_feat=Variable(torch.tensor(training_set.train_text_feature)).unsqueeze(0).cuda()
     text_feat_test=Variable(torch.tensor(training_set.test_text_feature)).unsqueeze(0).cuda()

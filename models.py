@@ -13,15 +13,17 @@ class Attention(nn.Module):
     def forward(self, query, text_feat):
 
         context = self.main(text_feat)
-        context = context.expand(query.shape[0], context.shape[1],
-                                                         context.shape[2])
+        context = context.expand(query.shape[0], context.shape[1], context.shape[2])  # batch_size, num_classes, image_dim
         query = query.unsqueeze(1)
-        batch_size, output_len, dimensions = query.size()
-        query_len = context.size(1)
+        batch_size, output_len, dimensions = query.size()  # output_len = 1?
+        query_len = context.size(1)  # num_cls
 
         attention_scores = torch.bmm(query, context.transpose(1, 2).contiguous())
-        attention_scores = attention_scores.view(batch_size * output_len, query_len)
+        # query (bsz, 1, img_dim) x context (bsz, img_dim, num_cls) = (bsz, 1, num_cls)
+
+        attention_scores = attention_scores.view(batch_size * output_len, query_len)  # (bsz, num_cls)
+
         attention_weights = self.softmax(attention_scores)
-        attention_weights = attention_weights.view(batch_size, output_len, query_len)
+        attention_weights = attention_weights.view(batch_size, output_len, query_len)  # (bsz, 1, num_cls)
 
         return attention_weights, attention_scores

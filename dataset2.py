@@ -102,11 +102,11 @@ class DatasetCUB(Dataset):
                 txt_feat_path = r"data/CUB2011/CUB_Porter_7551D_TFIDF_new_original.mat"
 
             train_test_split_dir = 'data/CUB2011/train_test_split_easy.mat'
-            pfc_label_path_train = 'data/CUB2011/labels_train.pkl'
-            pfc_label_path_test = 'data/CUB2011/labels_test.pkl'
+            pfc_label_path_train = 'data/CUB2011/train_val_split_easy/labels_train.pkl'
+            pfc_label_path_test = 'data/CUB2011/train_val_split_easy/labels_test.pkl'
             pfc_feat_path_train = 'data/CUB2011/train_val_split_easy/pfc_feat_train.mat'
             pfc_feat_path_test = 'data/CUB2011/train_val_split_easy/pfc_feat_test.mat'
-            train_cls_num = 150
+            train_cls_num = 100
             test_cls_num = 50
         else:
             if opt.model=='similarity_VRS': #'similarity_VRS'
@@ -115,11 +115,11 @@ class DatasetCUB(Dataset):
                 txt_feat_path = r"data/CUB2011/CUB_Porter_7551D_TFIDF_new_original.mat"
 
             train_test_split_dir = 'data/CUB2011/train_test_split_hard.mat'
-            pfc_label_path_train = 'data/CUB2011/labels_train_hard.pkl'
-            pfc_label_path_test = 'data/CUB2011/labels_test_hard.pkl'
+            pfc_label_path_train = 'data/CUB2011/train_val_split_easy/labels_train.pkl'
+            pfc_label_path_test = 'data/CUB2011/train_val_split_easy/labels_test.pkl'
             pfc_feat_path_train = 'data/CUB2011/train_val_split_hard/pfc_feat_train.mat'
             pfc_feat_path_test = 'data/CUB2011/train_val_split_hard/pfc_feat_test.mat'
-            train_cls_num = 160
+            train_cls_num = 120
             test_cls_num = 40
 
         self.pfc_feat_data_train = sio.loadmat(pfc_feat_path_train)['pfc_feat'].astype(np.float32)

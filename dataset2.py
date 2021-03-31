@@ -101,7 +101,7 @@ class DatasetCUB(Dataset):
             else: #vanilla\similarity
                 txt_feat_path = r"data/CUB2011/CUB_Porter_7551D_TFIDF_new_original.mat"
 
-            train_test_split_dir = 'data/CUB2011/train_test_split_easy.mat'
+            train_test_split_dir = 'data/CUB2011/train_val_split_easy.mat'
             pfc_label_path_train = 'data/CUB2011/train_val_split_easy/labels_train.pkl'
             pfc_label_path_test = 'data/CUB2011/train_val_split_easy/labels_test.pkl'
             pfc_feat_path_train = 'data/CUB2011/train_val_split_easy/pfc_feat_train.mat'
@@ -114,7 +114,7 @@ class DatasetCUB(Dataset):
             else: #vanilla\similarity
                 txt_feat_path = r"data/CUB2011/CUB_Porter_7551D_TFIDF_new_original.mat"
 
-            train_test_split_dir = 'data/CUB2011/train_test_split_hard.mat'
+            train_test_split_dir = 'data/CUB2011/train_val_split_hard.mat'
             pfc_label_path_train = 'data/CUB2011/train_val_split_easy/labels_train.pkl'
             pfc_label_path_test = 'data/CUB2011/train_val_split_easy/labels_test.pkl'
             pfc_feat_path_train = 'data/CUB2011/train_val_split_hard/pfc_feat_train.mat'
